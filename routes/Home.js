@@ -4,10 +4,10 @@ module.exports =function(express,dir,fs){
 
         router.get('/auth/home',(req,res,next)=>{
 
-            if(!req.session.user){
-                res.status(400).send("No validated user account Found ! plz Login with valiadted user Id !");
-                return;
-            }
+           // if(!req.session.user){
+             //   res.status(400).send("No validated user account Found ! plz Login with valiadted user Id !");
+               // return;
+            //}
 
             next();
             return;

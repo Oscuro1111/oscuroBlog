@@ -3,9 +3,9 @@ module.exports = function (dir, express, ejs, models,fs) {
 
         var router = express.Router();
 
-        var usersWithPosts = [];
+    
 
-        router.get('/posts/', [validateUser] ,function(req,res){
+        router.get('/posts/', function(req,res){
 
             var path = dir+'/public'+req.query.path;
 

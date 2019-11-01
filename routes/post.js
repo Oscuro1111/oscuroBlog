@@ -4,7 +4,7 @@ module.exports=function(dir, express,models){
     return ((dir_,express_,ejs_,model_)=>{
         var router =express.Router();
         
-        router.get('/post',[validateUser,checkPost]);
+        router.get('/post',[checkPost]);
         
         return router;
 
@@ -31,6 +31,7 @@ function checkPost(req,res,next){
 
 
     Post.find({}).populate('author').exec(function(err ,data){
+
         if(err){
             res.status(404).send("Not found");
         }else{
