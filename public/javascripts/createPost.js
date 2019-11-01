@@ -15,7 +15,7 @@ $(document).ready(function() {
 				// over
 
 				$(this)
-					.find('span')
+					.find('span#btn')
 					.css({ visibility: 'visible' });
 				$(this).css({ 'border-style': 'dashed', 'border-width': '5px', 'border-color': 'lightgreen' });
 			}),
@@ -25,7 +25,7 @@ $(document).ready(function() {
 			})(function() {
 				// out
 				$(this)
-					.find('span')
+					.find('span#btn')
 					.css({ visibility: 'hidden' });
 				$(this).css({ 'border-style': '', 'border-width': '', 'border-color': '' });
 			})
