@@ -164,6 +164,6 @@ function setImage(importImage) {
 	$(importImage).click(event => {
 		event.preventDefault();
 
-		window.open(window.location.hostname+'/createPost/uploadImg.html');
+		window.open('https://oscuro.herokuapp.com/createPost/uploadImg.html');
 	});
 }
