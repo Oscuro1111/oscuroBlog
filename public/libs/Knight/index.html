@@ -70,7 +70,7 @@ span#mLink a:hover{
 		<!--main-nav-start-->
 		<div class="container">
 			<ul class="main-nav">
-				<li><a href="#header">Home</a></li>
+				<li><a href="/">Home</a></li>
 				<li><a href="#service">About us</a></li>
 				<li><a href="/form">Login</a></li>
 				
@@ -78,9 +78,14 @@ span#mLink a:hover{
 				<li><a href="#Portfolio">Portfolio</a></li>
 				<li><a href="#PFeedback">Feedback</a></li>
 			</ul>
-			<a class="res-nav_click" href="#"><i class="fa fa-bars"></i></a>
+			<a class="res-nav_click" href="#" onclick='toogle(this)'><i class="fa fa-bars"></i></a>
 		</div>
 	</nav>
+	<script>
+	  function toogle(th){
+		  $(".main-nav").slideToggle(900);
+	  }
+	</script>
 	<!--main-nav-end-->
 
 
@@ -104,7 +109,7 @@ span#mLink a:hover{
 	<section class="business-talking">
 		<!--business-talking-start-->
 		<div class="container">
-			<h2>Let’s Talk Business.</h2>
+			<h2>Oscuro Blog</h2>
 		</div>
 	</section>
 <center>
@@ -157,16 +162,16 @@ span#mLink a:hover{
 		$(document).ready(function(e) {
 
 			$('#test').scrollToFixed();
-			$('.res-nav_click').click(function() {
-				$('.main-nav').slideToggle();
+			  $('.res-nav_click').click(function() {
+			   	$('.main-nav').slideToggle();
 				return false
 
 			});
 
-      $('.Portfolio-box').magnificPopup({
+           $('.Portfolio-box').magnificPopup({
         delegate: 'a',
         type: 'image'
-      });
+            });
 
 		});
 	</script>
