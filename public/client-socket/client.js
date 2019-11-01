@@ -84,7 +84,7 @@ $(document).ready(function () {
         $event.preventDefault();
 
         flg = true;
-        window.open("http://localhost:3000/createPost/uploadImg.html");
+        window.open("https://oscuro.herokuapp.com/createPost/uploadImg.html");
 
     });
 
