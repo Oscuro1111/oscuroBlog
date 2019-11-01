@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Post</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet"  href="/css/w3.css">
+    <link rel="stylesheet"  href="/css/font-awesome.min.css">
+    <script type="text/javascript" src="/libs/jquery.js"></script>
+</head>
+
+<body>
+    <header>
+        <h2>Upload Image</h2>
+    </header>
+
+    <div id="main" class=container">
+      
+
+  
+
+
+
+        <!--content--->
+        <script type="text/javascript">
+            var oDoc, sDefTxt;
+
+            function initDoc() {
+                oDoc = document.getElementById("textBox");
+                sDefTxt = oDoc.innerHTML;
+                if (document.compForm.switchMode.checked) {
+                    setDocMode(true);
+                }
+            }
+
+            function formatDoc(sCmd, sValue) {
+                if (validateMode()) {
+                    document.execCommand(sCmd, true, sValue);
+                    oDoc.focus();
+                }
+            }
+
+            function validateMode() {
+                if (!document.compForm.switchMode.checked) {
+                    return true;
+                }
+                alert("Uncheck \"Show HTML\".");
+                oDoc.focus();
+                return false;
+            }
+
+            function setDocMode(bToSource) {
+                var oContent;
+                if (bToSource) {
+                    oContent = document.createTextNode(oDoc.innerHTML);
+                    oDoc.innerHTML = "";
+                    var oPre = document.createElement("pre");
+                    oDoc.contentEditable = false;
+                    oPre.id = "sourceText";
+                    oPre.contentEditable = true;
+                    oPre.appendChild(oContent);
+                    oDoc.appendChild(oPre);
+                    document.execCommand("defaultParagraphSeparator", false, "div");
+                } else {
+                    if (document.all) {
+                        oDoc.innerHTML = oDoc.innerText;
+                    } else {
+                        oContent = document.createRange();
+                        oContent.selectNodeContents(oDoc.firstChild);
+                        oDoc.innerHTML = oContent.toString();
+                    }
+                    oDoc.contentEditable = true;
+                }
+                oDoc.focus();
+            }
+
+            function printDoc() {
+                if (!validateMode()) {
+                    return;
+                }
+                var oPrntWin = window.open("", "_blank",
+                    "width=450,height=470,left=400,top=100,menubar=yes,toolbar=no,location=no,scrollbars=yes");
+                oPrntWin.document.open();
+                oPrntWin.document.write(
+                    "<!doctype html><html><head><title>Print<\/title><\/head><body onload=\"print();\">" + oDoc
+                    .innerHTML + "<\/body><\/html>");
+                oPrntWin.document.close();
+            }
+        </script>
+        <style type="text/css">
+            .intLink {
+                cursor: pointer;
+            }
+
+            img.intLink {
+                border: 0;
+            }
+
+            #toolBar1 select {
+                font-size: 10px;
+            }
+
+            #textBox {
+                width: 540px;
+                height: 200px;
+                border: 1px #000000 solid;
+                padding: 12px;
+                overflow: scroll;
+            }
+
+            #textBox #sourceText {
+                padding: 0;
+                margin: 0;
+                min-width: 498px;
+                min-height: 200px;
+            }
+
+            #editMode label {
+                cursor: pointer;
+            }
+        </style>
+        </head>
+
+        <body onload="initDoc();">
+            
+<center>
+     
+    <div class="jumbotron-fluid" id="postContent-img" >
+        <br>
+        
+        <form class="imgForm" action="/postCreate/uploadImage" enctype="multipart/form-data" method="POST"> <input class="form-control" type="file" id="imgs" name="imgs" multiple=""><input type="submit" class="btn primary" value="Upload" id="btn-upload"></form>
+    </div>
+</center>
+         
+        
+                                 
+
+            <script type="text/javascript">
+            
+
+                $(document).ready(function () {
+                    $("#btn-upload").click(function(e){
+                        var parent = $("#postContent-img")[0];
+                        
+                        $(this).css({"visibility":"hidden"});
+                        $(parent).append("<p><i class='fa fa-spinner w3-spin' style='font-size:64px'></i></p>");
+                       setTimeout(_=>window.close(),5000);
+                    });
+                });
+                                 
+            </script>
+
+            <script type='text/javascript' src="/js/bootstrap.js"></script>
+            <script type="text/javascript" src="/client-socket/client.js"></script>
+            <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+            
+            <script type="text/javascript" src="/javascripts/createPost.js"></script>
+
+        </body>
+
+</html>

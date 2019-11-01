@@ -1,0 +1,93 @@
+
+var createError = require('http-errors');
+var fs = require('fs');
+var ejs = require('ejs');
+var express = require('express');
+var session = require('express-session');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var events = require('events');
+var expressValidator = require('express-validator');
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+
+var shareAble ={};
+
+//Getting routes
+var form = require('./routes/form'),
+  login = require('./routes/login'),
+  signeUp = require('./routes/signUp'),
+  signingUp = require('./routes/signingUp'),
+  home = require('./routes/Home'),
+  posts = require('./routes/post'),
+  logout=require('./routes/logout'),
+  getPost= require('./routes/getPost.js'),
+  putPost = require('./routes/putPost'),
+  deletePost = require('./routes/delete')
+  ;
+
+
+var fileUploads = require('./node_modules/express-fileupload');
+
+var postCreator= require('./routes/uploadPostImages');
+
+var app = express();
+// view engine setup
+
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(session({ secret: "mySaltingKey", resave: true, saveUninitialized: false }));
+app.use(cookieParser());
+
+app.use(fileUploads());
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/',indexRouter(__dirname+'/public'));
+app.use(postCreator(__dirname+'/public',express,fs,shareAble));
+app.use('/users', usersRouter);
+
+app.use('/', form(express, fs, __dirname +'/public', ejs));
+app.use(home(express,__dirname+'/views',fs));
+app.use(signeUp(express, __dirname + "/public", fs));
+app.use(logout(express,__dirname+'/public',fs));
+
+
+
+
+// catch 404 and forward to error handler
+
+
+module.exports = { initialize:(models)=>{
+  
+  app.use(login(express, expressValidator, fs, __dirname + "/views", models));
+  
+  app.use(signingUp(express, __dirname + '/views', fs, expressValidator, models));
+  
+  app.use(getPost(express,shareAble,__dirname,models));
+  app.use(posts(__dirname,express,models));
+  app.use(putPost(__dirname ,express,ejs,models,fs));
+
+  app.use(deletePost(express , models));
+  app.use(function (req, res, next) {
+    next(createError(404));
+  });
+  
+  // error handler
+  app.use(function (err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+  });
+  return app;
+},
+shareAble:shareAble
+};

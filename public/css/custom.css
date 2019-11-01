@@ -1,0 +1,233 @@
+#slide{
+    padding:10px;
+    background-color: aqua;  
+    position:sticky; 
+
+}
+body{
+    min-height: 100vh;
+}
+#content{
+    background-color:slateblue;
+}
+
+header{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding:10px;
+    background-color: black;
+    color: rgb(15, 160, 153);
+}
+
+#btn-new{
+    padding:10px;
+}
+#btn-upload{
+    padding:10px;
+}
+
+#background-label{
+    background-color:black;
+    color:rgb(11, 14, 214);
+    padding:10px; 
+}
+
+#btn-f-s{
+    background-color: beige;
+    padding:10px;
+}
+#btn-t-c{
+    background-color:goldenrod;
+    padding:10px;
+}
+select{
+color:white;
+}
+
+
+
+/*Opt-colours*/
+
+
+#opt-Green{
+    background-color: green;
+}
+#opt-Black{
+    background-color: black;
+}
+
+#opt-LightGreen{
+    background-color: lightgreen;
+}
+
+#opt-Blue{
+    background-color: blue;
+}
+
+
+#content{
+    display: grid; 
+    min-height: 500px;
+    max-height: 550px;
+    overflow-y: scroll;
+    overflow-x: scroll;
+}
+
+#txt-w{   
+    background-color: cadetblue;
+    grid-row:2/8;  
+}
+
+#txt-c{
+    background-color: black;
+    
+}
+
+select#opt-txt-size-list{
+    background-color:mediumslateblue;
+    color:#fff; 
+}
+div#textBox{
+    height:150px;
+    width:50%;
+}
+button#btn-done,#btn-edit{
+    border-radius:20%; 
+    padding: 10px;
+    background-color:rgb(9, 197, 34); 
+}
+
+.textEditor{
+
+    visibility: hidden;
+}
+
+#postContent{
+    display: block;
+    min-height: 50vh;
+    visibility:visible;
+}
+
+.card > .card-body > span.card-edit{
+    visibility:hidden;
+    background-color:rgb(8, 117, 4);
+    color:white;
+    padding:5px;
+}
+.card > .card-body > span.card-edit:hover{
+    padding:10px;
+    background-color:#13e413; 
+    cursor: pointer;
+}
+
+span.card-add{
+    visibility: hidden;
+    background-color:rebeccapurple;
+    padding:5px;
+    font-size: 20px;
+    color:white; 
+    margin-left:3px;
+
+}
+
+span.card-add:hover{
+    padding:10px;
+    background-color:rgb(183, 6, 253); 
+    cursor: pointer;
+}
+span.card-remove{
+    padding-left:10px;
+    padding-right:10px;
+    visibility: hidden;
+    font-size: 20px;
+    color:white;
+    background-color: rgba(173, 13, 13, 0.993);
+    margin-left: 3px;
+}
+span.card-remove:hover{
+    padding:10px;
+    background-color: rgb(250, 28, 28);
+    cursor: pointer;
+}
+#slide li{
+    color:#ffff;
+    background-color: #0d548f;
+}
+
+#slide li:hover{
+    padding:12px;
+    background-color:rgb(66, 146, 250) ;
+    color:#ffff;
+
+}
+input#btn-upload{
+    background-color: #21bb0d;
+    color:#ffff;
+}
+.imgForm:hover >.removeUploader{
+    visibility: visible;
+}
+.removeUploader{
+    visibility: hidden;
+    background-color: #ff0f07;
+    padding:5px;
+    border-radius:10px; 
+    color: #ffff;
+}
+#postContent-img{
+    background-color: #1283df;
+    padding: 10px;
+    display: block;
+    height: 400px;
+    width: 400px;
+}
+
+div#post-image{
+    padding:20px;
+    display: flexbox;
+}
+
+h4#cover-image:hover{
+    padding:10px;
+    background-color: #3b4ef8;
+    cursor: pointer;
+}
+
+div#postedMsg{
+    min-height: 500px;
+
+
+}
+div#postedMsg h2{
+    background-color: blueviolet;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    padding: 20px;
+}
+div#postedMsg a{
+    color:slategray;
+    padding:10px;
+    text-decoration:none;
+}
+
+
+div#postedMsg strong:hover{
+
+    
+    padding:10px;
+    color: #1283df;
+
+}
+
+div#postedMsg strong{
+    padding:20px;
+    background-color: rgb(3, 216, 21);
+}
+
+option{
+    font-size:20px;
+}
+select{
+    padding:10px;
+
+}

@@ -1,0 +1,17 @@
+div#db{
+    display: list-item;
+    background-color: rgb(9, 124, 231);
+    color:#ffff;
+    padding:10px;
+    margin: 5px;
+}
+div#db a,p{
+    text-decoration: none;
+    color: #ffff;
+}
+div#db p{
+    background-color:rgb(19, 189, 56); 
+}
+footer{
+    margin-top: 50px;
+}

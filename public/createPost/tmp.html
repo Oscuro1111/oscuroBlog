@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Selction And Range</title>
+</head>
+<body>
+
+
+
+    <script type="text/javascript">
+        function sameNode(node , startOffset, endOffset){
+            console.log("Start Offset:"+startOffset);
+            console.log("End Offset:"+endOffset);
+            var stringData = node.nodeValue.split("");
+            var temp="";
+            var nonSelectedStart="";
+            var nonSelectedEnd="";
+            
+            var parentNode = node.parentNode;
+            
+            var part1=null;
+            var part2=null;
+            var part3=null;
+
+            for(let i =startOffset;i<endOffset;i++){
+                temp+=stringData[i];
+            }
+
+            part2  = document.createTextNode(temp);
+
+            if(startOffset!=0){
+                for(let i=0;i<startOffset;i++)
+                nonSelectedStart+=stringData[i];
+
+                 part1  = document.createTextNode(nonSelectedStart);
+            }
+
+            if(endOffset!=0){
+                for(let start=endOffset;start<stringData.length;start++){
+                    nonSelectedEnd+=stringData[start];
+                }
+                 part3  = document.createTextNode(nonSelectedEnd);
+            }
+            var span = null;
+            var span2 =document.createElement("span");
+            var span3 = null;
+
+            var nextSibling = node.nextSibling;
+            
+            parentNode.removeChild(node);
+            
+            if(part1){
+                span=document.createElement("span");
+                span.append(part1);
+            }
+            
+            span2.append(part2);
+            
+            if(part3){
+                span3=document.createElement("span");
+
+                span3.append(part3);
+            }
+
+        if(span)
+            parentNode.insertBefore(span , nextSibling);
+
+            parentNode.insertBefore(span2, nextSibling);
+
+            span2.style.color="blue";
+
+            if(span3){
+                parentNode.insertBefore(span3,nextSibling);
+            }
+
+        }
+
+
+      function  multipleNodes(startContainer,endContainer,startOffset,endOffset){
+          //General Strategy
+          console.log("Multiple node selection");
+          
+      }
+
+      function colorIt(color){
+
+          var selection = window.getSelection();
+          if(!selection.isCollapsed){
+          var range = selection.getRangeAt(0);
+           
+           var startContainer = range.startContainer;
+           var startOffset    = range.startOffset;
+
+           var endContainer = range.endContainer;
+           var endOffset    = range.endOffset;
+console.log(selection);
+
+if(endContainer==startContainer)
+          sameNode(startContainer,startOffset,endOffset);
+else
+          multipleNodes(startContainer,endContainer,startOffset,endOffset);
+
+
+          }else{
+              alert("Select something!");
+              return;
+          }
+        
+    }
+    </script>
+
+    <button onclick="colorIt('blue')">
+        change to blue.
+    </button>
+    <div>This is some text for test.</div>
+
+    <div>this is Another text for text.</div>
+
+
+    
+</body>
+</html>
