@@ -164,6 +164,6 @@ function setImage(importImage) {
 	$(importImage).click(event => {
 		event.preventDefault();
 
-		window.open('http://localhost:3000/createPost/uploadImg.html');
+		window.open(window.location.hostname+'/createPost/uploadImg.html');
 	});
 }
