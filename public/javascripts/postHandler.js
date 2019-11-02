@@ -34,16 +34,16 @@ function putPost(posts_, $_) {
 
 				console.log(data);
 
-				let post =
-					" <div class='card' id='db - 1'>" +
-					"<p style='color:blue;'>" + posts[i].date + "</p>" +
-					"<p id='author' style='color:green; font-size:20px;'>By:" + posts[i].author.userName + "</p>" +
-					"<img class='img-thumbnail' src='" + posts[i].img+"' alt='' height='300px' width='300px'>" +
-					"<div class='card-body'>" +
-					"<h3 class='card-title'>"+posts[i].title+"</h3>" +
-					"<h4><a href='/posts/?path="+posts[i].body+"'>Read .</a></h4>"+
-					'</div>' 
-					+'</div>';
+				let post =  "</br><a href='/posts/?path="+posts[i].body+"&"+"img="+posts[i].img+"&"+"title="+posts[i].title+"'><div class='w3-third w3-container w3-margin-bottom'>"+
+				"<span><b>By: "+posts[i].author.userName+"</b></span>"+
+				"<p><b>Posted on:"+posts[i].date+"</b></p>"+
+			   "<img src='"+posts[i].img+"' alt='' style='width:100%' class='w3-hover-opacity'>"+
+				"<div class='w3-container w3-white'>"+
+				"<span style='background-color:lightgreen'>"+
+				 "<h4 style='text-align:center;padding:2px'>"+posts[i].title+"</h4></a></span>"+
+				"</div>"+
+			  "</div>";                           
+					
 
 				$(posts_).append(post);
 			}

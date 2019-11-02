@@ -8,13 +8,14 @@ module.exports = function (dir, express, ejs, models,fs) {
         router.get('/posts/', function(req,res){
 
             var path = dir+'/public'+req.query.path;
-
+            var title =req.query.title;
+            var img = req.query.img;
             fs.readFile(path , function(err , data){
                 
                 if(err) 
-                 res.render('myviews/post.ejs',{post:":(",errorMsg:"Post you are looking for does not exist!"});
+                 res.render('myviews/post.ejs',{post: ":(" , errorMsg:"Post you are looking for does not exist!",title:"",coverImage:""});
                 
-                 res.render('myviews/post.ejs',{post:data , errorMsg:""});
+                 res.render('myviews/post.ejs',{post:data , errorMsg:"",title:title,coverImage:img});
             });
 
         });
