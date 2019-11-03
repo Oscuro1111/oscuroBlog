@@ -36,7 +36,7 @@ function putPost(posts_, $_) {
 			for (let i = 0; i < data.posts.length; i++) {
 
                 
-           let post = "<a class='w3-bar-item w3-button w3-hover-black' href='/posts/?path="+posts[i].body+ "'>"+posts[i].title+"</a>";
+           let post = "<a class='w3-bar-item w3-button w3-hover-black' style='font-size:2vm;' href='/posts/?path="+posts[i].body+ "'>"+posts[i].title+"</a>";
           
 
 			 	$(posts_).append(post);

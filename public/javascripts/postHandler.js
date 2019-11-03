@@ -40,7 +40,7 @@ function putPost(posts_, $_) {
 			   "<img src='"+posts[i].img+"' alt='' style='width:100%' class='w3-hover-opacity'>"+
 				"<div class='w3-container w3-white'>"+
 				"<span style='background-color:lightgreen'>"+
-				 "<h4 style='text-align:center;padding:2px'>"+posts[i].title+"</h4></a></span>"+
+				 "<h4 style='text-align:center;padding:2px;fonst-size:5vm'>"+posts[i].title+"</h4></a></span>"+
 				"</div>"+
 			  "</div>";                           
 					

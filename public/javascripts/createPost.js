@@ -163,8 +163,8 @@ $(document).ready(function() {
 function setImage(importImage) {
 	$(importImage).click(event => {
 		event.preventDefault();
-        //window.open("http://localhost:3000/createPost/uploadImg.html");
+        window.open("http://localhost:3000/createPost/uploadImg.html");
 
-		window.open('https://oscuro.herokuapp.com/createPost/uploadImg.html');
+		//window.open('https://oscuro.herokuapp.com/createPost/uploadImg.html');
 	});
 }
