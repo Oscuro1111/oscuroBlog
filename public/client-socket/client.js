@@ -78,6 +78,8 @@ $(document).ready(function () {
 
             $(this.parentNode).remove();
         });
+
+        
     });
 
     $("h4#cover-image").click(function ($event) {
